@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrita | Portfolio Under Construction</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Radial Glows -->
+    <div class="ambient-glow top-left-glow"></div>
+    <div class="ambient-glow center-cyan-glow"></div>
+    <div class="ambient-glow bottom-glow"></div>
+
+    <!-- Floating Construction Dust / Sparks Canvas -->
+    <canvas id="sparks-canvas"></canvas>
+
+    <!-- Site Navigation -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <!-- Modern Colorful Lotus / Geometric Emblem -->
+            <svg class="brand-logo" width="36" height="36" viewBox="0 0 48 48" fill="none">
+                <path d="M24 4C24 4 15 15 15 26C15 32 19 37 24 39C29 37 33 32 33 26C33 15 24 4 24 4Z" fill="url(#brandGrad1)"/>
+                <path d="M12 18C12 18 6 25 6 32C6 36 9 39 14 40C18 41 22 39 23 37C19 35 16 31 16 26C16 23 18 20 12 18Z" fill="url(#brandGrad2)"/>
+                <path d="M36 18C36 18 42 25 42 32C42 36 39 39 34 40C30 41 26 39 25 37C29 35 32 31 32 26C32 23 30 20 36 18Z" fill="url(#brandGrad3)"/>
+                <defs>
+                    <linearGradient id="brandGrad1" x1="15" y1="4" x2="33" y2="39" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#00f5d4"/>
+                        <stop offset="0.5" stop-color="#00bbf9"/>
+                        <stop offset="1" stop-color="#7b2cbf"/>
+                    </linearGradient>
+                    <linearGradient id="brandGrad2" x1="6" y1="18" x2="23" y2="40" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#ff007f"/>
+                        <stop offset="1" stop-color="#ff7b00"/>
+                    </linearGradient>
+                    <linearGradient id="brandGrad3" x1="42" y1="18" x2="25" y2="40" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#00f0ff"/>
+                        <stop offset="1" stop-color="#9d4edd"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="brand-text">
+                <span class="logo-name">AMRITA</span>
+                <span class="logo-sub">PORTFOLIO</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home" class="nav-item active">Home</a>
+            <a href="#about" class="nav-item">About Me</a>
+            <a href="#works" class="nav-item">Projects</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+
+        <div class="nav-action">
+            <button class="btn-cyan-header" id="headerCtaBtn">GET IN TOUCH</button>
+        </div>
+    </header>
+
+    <!-- Main Hero Stage -->
+    <main class="hero-container">
+        <!-- Animated Crane Assembly hanging from viewport top -->
+        <div class="crane-assembly" id="craneAssembly">
+            <!-- Steel Cable -->
+            <div class="crane-cable"></div>
+
+            <!-- Crane Pulley Block & Hook with Warning Stripes -->
+            <div class="crane-head">
+                <svg class="crane-svg" width="130" height="175" viewBox="0 0 130 175" fill="none">
+                    <defs>
+                        <!-- Steel metal gradient -->
+                        <linearGradient id="steelMetal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#a0aec0"/>
+                            <stop offset="50%" stop-color="#4a5568"/>
+                            <stop offset="100%" stop-color="#2d3748"/>
+                        </linearGradient>
+                        <!-- Hook chrome gradient -->
+                        <linearGradient id="hookGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#e2e8f0"/>
+                            <stop offset="40%" stop-color="#94a3b8"/>
+                            <stop offset="70%" stop-color="#475569"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
+                        </linearGradient>
+                        <!-- Glow filter for cyan stripes -->
+                        <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00f0ff" flood-opacity="0.8"/>
+                        </filter>
+                    </defs>
+
+                    <!-- Top cable anchor connector -->
+                    <rect x="58" y="0" width="14" height="16" rx="3" fill="url(#steelMetal)" stroke="#1a202c" stroke-width="2"/>
+                    <circle cx="65" cy="8" r="3" fill="#cbd5e1"/>
+
+                    <!-- Main Pulley Block (Rounded Capsule with Cyan/Black Diagonal Hazard Stripes) -->
+                    <g filter="url(#cyanGlow)">
+                        <path d="M42 22C42 16.4772 46.4772 12 52 12H78C83.5228 12 88 16.4772 88 22V82C88 87.5228 83.5228 92 78 92H52C46.4772 92 42 87.5228 42 82V22Z" fill="#0b131a" stroke="#00f0ff" stroke-width="2.5"/>
+                        
+                        <!-- Diagonal Stripes clipped inside pulley block -->
+                        <g clip-path="url(#pulleyClip)">
+                            <path d="M30 30L90 -10L105 5L45 45Z" fill="#00f0ff"/>
+                            <path d="M30 55L90 15L105 30L45 70Z" fill="#00f0ff"/>
+                            <path d="M30 80L90 40L105 55L45 95Z" fill="#00f0ff"/>
+                            <path d="M30 105L90 65L105 80L45 120Z" fill="#00f0ff"/>
+                        </g>
+                    </g>
+
+                    <clipPath id="pulleyClip">
+                        <path d="M43 22C43 17 47 13 52 13H78C83 13 87 17 87 22V82C87 87 83 91 78 91H52C47 91 43 87 43 82V22Z"/>
+                    </clipPath>
+
+                    <!-- Center Bolt / Rivet -->
+                    <circle cx="65" cy="52" r="7" fill="url(#steelMetal)" stroke="#00f0ff" stroke-width="1.5"/>
+                    <circle cx="65" cy="52" r="2.5" fill="#00f0ff"/>
+
+                    <!-- Lower Swivel Joint -->
+                    <rect x="57" y="93" width="16" height="12" rx="3" fill="url(#steelMetal)" stroke="#1a202c" stroke-width="1.5"/>
+                    <circle cx="65" cy="99" r="2" fill="#e2e8f0"/>
+
+                    <!-- Metallic Crane Hook -->
+                    <path d="M65 105 C65 116 61 122 55 128 C47 136 45 147 52 156 C59 165 72 165 80 155 C88 144 87 132 80 126 C78 124 75 125 74 128 C73 131 75 134 77 136 C81 141 81 149 75 154 C69 160 59 158 55 151 C51 144 54 136 60 130 C67 123 72 116 72 105 Z" 
+                          fill="url(#hookGrad)" 
+                          stroke="#cbd5e1" 
+                          stroke-width="1.2"
+                          filter="drop-shadow(0 6px 12px rgba(0,0,0,0.6))"/>
+                </svg>
+
+                <!-- Rigging Wires suspending the letter 'D' -->
+                <div class="rigging-lines">
+                    <div class="wire-left"></div>
+                    <div class="wire-right"></div>
+                </div>
+
+                <!-- Suspended Letter "D" with Physics Swing -->
+                <div class="suspended-d" id="suspendedLetterD">
+                    <span>D</span>
+                    <div class="d-glow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Typography: "UN [D] ER" + "CONSTRUCTION" -->
+        <div class="construction-typography">
+            <div class="under-wrapper">
+                <span class="letter-char">U</span>
+                <span class="letter-char">N</span>
+                <!-- Spacer where the suspended D hangs -->
+                <div class="hanging-space-slot" aria-hidden="true"></div>
+                <span class="letter-char">E</span>
+                <span class="letter-char">R</span>
+
+                <!-- Animated Diagonal Construction Stripe Accents behind text -->
+                <div class="hazard-stripes-bg">
+                    <div class="hazard-bar bar-1"></div>
+                    <div class="hazard-bar bar-2"></div>
+                </div>
+            </div>
+
+            <!-- Big Bold "CONSTRUCTION" Wordmark -->
+            <h1 class="construction-title">CONSTRUCTION</h1>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="hero-description">
+            Hi, I am Amrita Singh, building my portfolio website.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+            <button class="btn-cyan-pill" id="notifyBtn">
+                <span class="btn-text">Read More</span>
+                <span class="btn-ripple"></span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Interactive Contact/Notification Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
+            <div class="modal-icon-ring">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2">
+                    <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </div>
+            <h3 class="modal-title">Get Notified at Launch</h3>
+            <p class="modal-subtitle">Leave your email to receive early access when the full portfolio goes live.</p>
+            <form class="modal-form" id="notifyForm">
+                <div class="input-wrapper">
+                    <input type="email" placeholder="Enter your email address" required id="emailInput" class="modal-input">
+                </div>
+                <button type="submit" class="btn-cyan-pill modal-submit-btn">
+                    <span>Keep Me Updated</span>
+                </button>
+            </form>
+            <div class="modal-success-msg" id="modalSuccess">
+                ✓ Thank you! You're on the priority list.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
